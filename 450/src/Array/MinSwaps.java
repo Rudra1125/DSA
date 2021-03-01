@@ -5,7 +5,7 @@ public class MinSwaps {
 	public static int minSwaps(int []arr,int n,int k) {
         int count =0;
         for(int i=0;i<n;i++){
-            if(arr[i]<k){
+            if(arr[i]<=k){
                 count++;
             }
         }
