@@ -5,7 +5,9 @@ import java.util.Stack;
 
 public class MaxRectangle {
 
-	public static long maxarea(int [] arr) {
+	//this is code to find the area of the histogram
+	
+	private static int maxarea(int [] arr) {
 		if(arr.length==0) {
 			return 0;
 		}
@@ -48,22 +50,21 @@ public class MaxRectangle {
 		return max;
 	}
 	
-	public static void maxRectangleArea(int mat[][], int m ,int n) {
+	public static int maxRectangleArea(int mat[][], int m ,int n) {
+		int max=maxarea(mat[0]);
 		
-		for(int i=0;i<m;i++) {
-			for(int j=0;i<n;j++) {
-				if(i!=0) {
-					if(mat[i][j]!=0) {
-						mat[i][j]=mat[i][j]+mat[i-1][j];
-					}else {
-						continue;
-					}
-				}else {
-					continue;
+		for(int i=1;i<m;i++) {
+			for(int j=0;j<n;j++) {
+				if(mat[i][j]==1) {
+					mat[i][j]=mat[i][j]+mat[i-1][j];
+					
 				}
+				
 			}
+			max=Math.max(max, maxarea(mat[i]));
 		}
 		
+		return max;
 	}
 	
 	public static void main(String[] args) {
