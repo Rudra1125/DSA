@@ -18,10 +18,17 @@ public class FindSpecificPair {
 			}
 		}return max;
 	}
+	//this solution has time complexity of O(N^2)
+	
 	
 	public static int specificPairBetter(int[][] mat,int n) {
 		int maxVAlue=Integer.MIN_VALUE;
+		
+		//we will use extra space 
 		int [][] maxArr= new int [n][n];
+		
+	//Initialise the matrix with the last value 
+		//and fill the last row and column
 		maxArr[n-1][n-1]= mat[n-1][n-1];
 		int maxV=mat[n-1][n-1];
 		for(int j=n-2;j>=0;j--) {
@@ -37,6 +44,11 @@ public class FindSpecificPair {
 			}
 			maxArr[i][n-2]=maxV;
 		}
+		
+	// put the remaining element in the MAXARRAY
+		//Compare it with the nearby elements 
+		//return the max value
+		
 		
 		for(int i=n-2;i>=0;i--) {
 			for(int j=n-2;j>=0;j--) {
