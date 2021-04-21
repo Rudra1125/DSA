@@ -5,13 +5,15 @@ public class StringRotation {
 	public static boolean areRotations(String s1,String s2) {
 		if(s1.length()!=s2.length()) {
 			return false;
-		}
-					
-		String temp=s1+s1;
-		if(temp.contains(s2)) {
+		}else if(s1==null || s2==null) {
 			return true;
 		}
-		
+		else {			
+			String temp=s1+s1;
+			if(temp.contains(s2)) {
+				return true;
+			}
+		}
 
 
 
